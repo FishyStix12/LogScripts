@@ -143,4 +143,4 @@ rm $repeatnum
 
 
 #Tells the user which directory and file the final results in
-echo "Final Brute Force Results Analysis results are in the " $dire "in the" $final "file!"
+echo "Final Brute Force Results Analysis results are in the" $dire "directory in the" $final "file!"
