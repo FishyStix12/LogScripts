@@ -63,4 +63,3 @@ echo "==========================================================================
 # sort -rn -> sorts the unique counted IP addresses in reverse chronological order numerically
 #| -> pipes the output of the previous command into the next command
 grep -E -o '([0-9]{1,3}\.){3}[0-9]{1,3}' *$input*| grep -v "0.0.0.0"| sort | uniq -c| sort -rn >> $newfile
-echo " I can do anything I put my mind to!" >> $newfile
