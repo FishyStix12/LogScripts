@@ -23,17 +23,17 @@ read input
 #Asks users for the name of the new file they want to create and append information to.
 echo -n "name of the file to append information to: "
 read newfile
-
+#Asks for the name/names of people who helped to analyze the auth.log files
+echo -n "Name of People in your group: "
+read users
 #Appends the string to the file being created by the script
-echo "Group Members\: Nicholas Fisher" >> $newfile
+echo "Group Members: " $users >> $newfile
 
 #Appends the string to the file being created by the script
 echo "IS 480-01" >> $newfile
 
 #saves the dates function as a variable named dates
-#then prints current date and time to the file created by the script
 dates=$(date)
-echo $dates >> $newfile
 
 #saves the full path to file/files from input variable as variable called fullpath
 #Then prints the full path to the auth.log file and added to 
