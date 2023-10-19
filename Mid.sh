@@ -41,8 +41,13 @@ echo $dates >> $newfile
 fullpath=$(realpath *$input*)
 echo $fullpath >> $newfile
 
+#Adds the number of Lines that are going to be analyzed from the file/files and saves it to a variable named lines
+lines=$(wc -l)
+
+#Prints the statement below with the number of lines that were in the file/files
+echo "We have analyzed and manipulated " $lines "lines, on" $dates >> $newfile
 #divides the header of the file with the information we were asked to pull
-echo "=========================================================================================" >> $newfile
+echo "=======================================================================" >> $newfile
 
 #grep -E -o -> -E runs grep with extended regular expressions such as () for grouping, {} for 
 #specifying the number of repetitions, and [] for greps class pattern matching 
