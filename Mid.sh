@@ -1,16 +1,20 @@
 #!/bin/bash
-#askes the user for the directory to which the auth.log file is stored and shows all directories in the current working directory
+
+# shows all directories in the current working directory
 ls -d
+#asks the user for the name of the directory with the log files they want to analyze
+#and saves it as a variable named dire
 echo -n "Name of the directory with the file/files: "
 read dire
+#Changes into the directory the user input earlier (dire variable)
 cd $dire
 
 # Use grep to extract IP addresses from the auth.log file
-echo -n "name of file to anaylze: "
+echo -n "name of file to analyze: "
 read input
 
 #appends information to file
-echo -n "name of file to append information to: "
+echo -n "name of the file to append information to: "
 read newfile
 
 #Appends the string to the file being created by the script
@@ -34,15 +38,20 @@ echo "==========================================================================
 #grep -E -o -> -E runs grep with extended regular expressions such as () for grouping, {} for 
 #specifying the number of repetitions, and [] for greps class pattern matching 
 # and -o only matches the case in the string. This command will automatically cut the parts of 
-#each line that aren't an IP address
+#each line that isn't an IP address
 #'([0-9]{1,3}\.){3} -> matches a sequence of three groups {3} containing 1 to 3 digits {1,3}
 #and each digit contains a number from the range of 0-9 [0-9] for the IP address.
 #[0-9]{1,3}' -> gives us the ability to restate that each IP address doesn't end with a period,
 #that it ends with a grouping of 1-3 digits containing a number from the range of 0-9.
 #If we do not include this the new file won't have any information as the command would be 
 #looking for IP addresses that end in a period.
+#*$input* -> greps from any files that match the string the user inputs into the interactive script when 
+#running the file
 #grep -v "0.0.0.0" removes the weird glitch address of 0.0.0.0 that is appearing in the 
-# output but isn't actually in the file
+# in the auth.log file as we do not care for when we are listening to port 22
+#sort -> groups all the IP addresses numerically allowing us to truly combine and pull out unique IP's
+#uniq -c -> removes anything that isn't a unique IP address, and counts all the redundancies for each IP address
+# sort -rn -> sorts the unique counted IP addresses in reverse chronological order numerically
 #| -> pipes the output of the previous command into the next command
 grep -E -o '([0-9]{1,3}\.){3}[0-9]{1,3}' *$input*| grep -v "0.0.0.0"| sort | uniq -c| sort -rn >> $newfile
 
