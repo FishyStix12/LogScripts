@@ -35,10 +35,10 @@ echo "IS 480-01" >> $newfile
 dates=$(date)
 echo $dates >> $newfile
 
-#saves the full path to vile as variable called fullpath
+#saves the full path to file/files from input variable as variable called fullpath
 #Then prints the full path to the auth.log file and added to 
 #the new file  created by the script
-fullpath=$(realpath auth.log)
+fullpath=$(realpath *$input*)
 echo $fullpath >> $newfile
 
 #divides the header of the file with the information we were asked to pull
