@@ -1,5 +1,12 @@
 #!/bin/bash
-
+#################################################################################################
+#       Author: Nicholas Fisher
+#       Date: October 19, 2023
+#       Course #: IS 477
+#       Description of Script:
+#       Pulls all IP addresses from any type of log file, sorts and counts the unique IP addresses
+#       in reverse chronological order.
+#################################################################################################
 # shows all directories in the current working directory
 ls -d
 #asks the user for the name of the directory with the log files they want to analyze
@@ -9,11 +16,11 @@ read dire
 #Changes into the directory the user input earlier (dire variable)
 cd $dire
 
-# Use grep to extract IP addresses from the auth.log file
-echo -n "name of file to analyze: "
+# Asks users for a string that will match some part of every file they want to analyze
+echo -n "Naming Pattern of the file to analyze: "
 read input
 
-#appends information to file
+#Asks users for the name of the new file they want to create and append information to.
 echo -n "name of the file to append information to: "
 read newfile
 
@@ -22,10 +29,12 @@ echo "Group Members\: Nicholas Fisher" >> $newfile
 
 #Appends the string to the file being created by the script
 echo "IS 480-01" >> $newfile
+
 #saves the dates function as a variable named dates
 #then prints current date and time to the file created by the script
 dates=$(date)
 echo $dates >> $newfile
+
 #saves the full path to vile as variable called fullpath
 #Then prints the full path to the auth.log file and added to 
 #the new file  created by the script
