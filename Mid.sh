@@ -31,5 +31,18 @@ echo $fullpath >> $newfile
 #divides the header of the file with the information we were asked to pull
 echo "=========================================================================================" >> $newfile
 
+#grep -E -o -> -E runs grep with extended regular expressions such as () for grouping, {} for 
+#specifying the number of repetitions, and [] for greps class pattern matching 
+# and -o only matches the case in the string. This command will automatically cut the parts of 
+#each line that aren't an IP address
+#'([0-9]{1,3}\.){3} -> matches a sequence of three groups {3} containing 1 to 3 digits {1,3}
+#and each digit contains a number from the range of 0-9 [0-9] for the IP address.
+#[0-9]{1,3}' -> gives us the ability to restate that each IP address doesn't end with a period,
+#that it ends with a grouping of 1-3 digits containing a number from the range of 0-9.
+#If we do not include this the new file won't have any information as the command would be 
+#looking for IP addresses that end in a period.
+#grep -v "0.0.0.0" removes the weird glitch address of 0.0.0.0 that is appearing in the 
+# output but isn't actually in the file
+#| -> pipes the output of the previous command into the next command
 grep -E -o '([0-9]{1,3}\.){3}[0-9]{1,3}' *$input*| grep -v "0.0.0.0"| sort | uniq -c| sort -rn >> $newfile
 
