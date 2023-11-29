@@ -1,4 +1,11 @@
 #!/bin/bash
+#################################################################################################
+#	Author: Nicholas Fisher
+#	Date: September 11 2023
+#	Course #: IS 477
+#	Description of Script
+# Pulls all cron jobs that are not closed from auth.log files
+#################################################################################################
 #User inputs the name of the directory with the auth.log files 
 echo -n  "Enter directory with auth.log files to analyze:"
 #Reads the input given by the user and saves it as variable a variable named d
