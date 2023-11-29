@@ -12,7 +12,7 @@ This is a repository of scripts to help analyze various .log files found on Linu
 7. SysLogAggregation.sh - This script is used to expand DHCPREQUEST repeated x times into the normal DHCPREQUEST format of DHCPREQUEST of <IP ADDR> & <SUBNET Addr> and appends it to a file the user creates, and aggregates it with the normal data. It then moves all the files to a directory created by the user. <br />
 8. Testscript.sh - is a script I use when making updates to the codes above to ensure that I am not damaging the actual shell scripts. <br />
 <br />
-# Example output of 477AggregateLogScript.sh: <br />
+# Example output of 477AggregateLogScript.sh:
 Welcome to my foruth Linux Bash Script
 -----------------------Unique IP with Invalid Users with number of Attempts ----------------------------- <br />
     532 68.183.12.113 <br />
