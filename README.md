@@ -14,7 +14,7 @@ This is a repository of scripts to help analyze various .log files found on Linu
 <br />
 Example output of 477AggregateLogScript.sh: <br />
 <br />
-Welcome to my foruth Linux Bash Script
+Welcome to my fourth Linux Bash Script <br />
 -----------------------Unique IP with Invalid Users with number of Attempts ----------------------------- <br />
     532 68.183.12.113 <br />
      36 13.235.135.173 <br />
