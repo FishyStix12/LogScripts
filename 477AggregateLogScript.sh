@@ -113,7 +113,7 @@ done
 grep -i 'from' $no_repeat >> $expandedLines
 
 #This message welcomes the user to the results of my 6th bash script
-echo "Welcome to my foruth Linux Bash Script" >> $final
+echo "Welcome to my fourth Linux Bash Script" >> $final
 
 
 
